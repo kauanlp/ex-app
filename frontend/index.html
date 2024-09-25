@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aplicacao Simples</title>
+</head>
+<body>
+  <h1>Frontend v2</h1>
+  <div id="conteudo"></div>
+  <script>
+    fetch('http://localhost:3000/')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('conteudo').innerHTML = data;
+    })
+    .catch(err => {
+      console.error(err);
+      document.getElementById('conteudo').innerHTML = 'Erro ao conectar com o backend';
+    });
+  </script>
+</body>
+</html>
