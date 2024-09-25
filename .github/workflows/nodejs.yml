@@ -27,3 +27,5 @@ jobs:
         with:
           image: kauanlp/ex-simple-frontend
           registry: docker.io
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
