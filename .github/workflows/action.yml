@@ -25,13 +25,13 @@ jobs:
       - name: Build and Push Docker backend Image
         uses: docker/build-push-action@v4
         with:
-          context: ./6-ex-docker-compose-and-actions/backend
+          context: ./5-ex-docker-compose-and-actions/backend
           push: true
           tags: kauanlp/ex-simple-backend:latest
 
       - name: Build and Push Docker frontend Image
         uses: docker/build-push-action@v4
         with:
-          context: ./6-ex-docker-compose-and-actions/frontend
+          context: ./5-ex-docker-compose-and-actions/frontend
           push: true
           tags: kauanlp/ex-simple-frontend:latest
