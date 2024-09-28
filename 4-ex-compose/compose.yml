@@ -1,0 +1,46 @@
+version:3.4
+services:
+  frontend:
+    image: kauanlp/ex-simple-frontend:v1.0
+    ports:
+      - 80:80
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  backend:
+    image: kauanlp/ex-simple-backend:v1.0
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    networks:
+      - app-network
+    environment:
+      MYSQL_HOST: db
+      MYSQL_PORT: 3306
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+
+  db:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    networks:
+      - app-network
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - db-data:/var/lib/mysql
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db-data:

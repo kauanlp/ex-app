@@ -1,0 +1,26 @@
+docker compose up -d --build
+docker compose down
+
+mudar de build para image
+
+services:
+  frontend:
+    build: ../2-ex-network/frontend
+  backend:
+    build: ../2-ex-network/backend
+
+----------
+
+services:
+  frontend:
+    image: kauanlp/ex-simple-frontend:v1.0
+  backend:
+    image: kauanlp/ex-simple-backend:v1.0
+
+
+separar o build em um arquivo compose-dev.yml 
+docker compose -f compose.yml -f compose-dev.yml up -d --build (executa as alteracoes do codigo)
+
+docker compose -f compose.yml up -d --pull always (volta para a versao do repositorio)
+-f compose.yml: Especifica apenas o arquivo compose.yml.
+--pull always: Garante que a imagem seja puxada do repositório.

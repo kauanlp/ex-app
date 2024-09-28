@@ -1,0 +1,5 @@
+services:
+  frontend:
+    build:
+      context: ../3-ex-network/frontend
+      dockerfile: Dockerfile

@@ -1,0 +1,2 @@
+docker tag ex-compose-frontend kauanlp/ex-simple-frontend:v1    
+docker push kauanlp/ex-simple-backend:v1.0     
